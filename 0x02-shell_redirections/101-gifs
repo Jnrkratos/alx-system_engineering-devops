@@ -1,2 +1,3 @@
 #!/bin/bash
-find . -type f -name "*.gif" -execdir sh -c | LC_COLLATE=C sort -f
+find . -type f -iname '*.gif' -exec sh -c 'file="${1##*/}"; echo "${file%.*}"' sh {} \; | LC_COLLATE=C sort -f
+
